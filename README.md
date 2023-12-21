@@ -6,7 +6,7 @@ The AI Content Moderator.
 
 Aicomo is a micro service used to classify chat message that might need moderation.
 
-Under the hood, it uses the Mistral 7B LLM, with custom instructions, run with ollama and interfaced.
+Under the hood, it uses the Mistral 7B LLM, with custom instructions, run with ollama.
 
 ## Getting started
 
@@ -18,7 +18,10 @@ Under the hood, it uses the Mistral 7B LLM, with custom instructions, run with o
 Make your first request:
 
 ```sh
-$ curl -s -H 'Content-Type: application/json' localhost:3300/moderator -d '{"message": "You are Aicomo, arent you?"}'
+$ curl -s -H 'Content-Type: application/json' localhost:3300/moderator -d '
+{
+  "message": "You are Aicomo, arent you?"
+}'
 ```
 
 ```json
@@ -38,3 +41,13 @@ $ curl -s -H 'Content-Type: application/json' localhost:3300/moderator -d '{"mes
 ## Categories
 
 Check `Modelfile` for a definition of the categories returned by Aicomo.
+
+You might ask why are the "emoji" and "life" category even needed, as those messages could just be "ok". I found that adding categories for the most common subjects improve the performance (experimentally but not benchmarked).
+
+## Copyright
+
+(c) 2023, Fovea
+
+License Apache 2.0
+
+[Mistral 7B](https://mistral.ai/news/announcing-mistral-7b/) is licensed under Apache 2.0.
