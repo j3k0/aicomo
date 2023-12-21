@@ -19,7 +19,7 @@ app.post('/moderator', async (req, res) => {
         'Content-Type': 'application/json',
       },
       data: {
-        model: 'moderator',
+        model: 'aicomo',
         stream: false,
         prompt: message,
       },
